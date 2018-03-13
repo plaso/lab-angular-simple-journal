@@ -20,6 +20,11 @@ export class JournalEntriesService {
       .catch( error => this.handleError(error) );
   }
 
+  get(id: string): Observable<Entry> {
+    return this.http.get(`${ JournalEntriesService.ENTRIES_API }/${ id }`, JournalEntriesService.defaultOptions)
+      .map( (res: Response) => res.json() )
+      .catch( error => this.handleError(error) );
+  }
 
   private handleError(error: Response): Observable<any> {
     if (!environment.production) {
