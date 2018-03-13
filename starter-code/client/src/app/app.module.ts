@@ -1,20 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import './rxjs.operators';
+import { routes } from './app.routes';
+
+import { JournalEntriesService } from './shared/services/journal-entries.service';
 
 import { AppComponent } from './app.component';
+import { EntryListComponent } from './components/entry-list/entry-list.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EntryListComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
-    HttpModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [JournalEntriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
