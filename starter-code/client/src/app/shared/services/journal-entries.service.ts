@@ -26,6 +26,12 @@ export class JournalEntriesService {
       .catch( error => this.handleError(error) );
   }
 
+  create(entry: Entry): Observable<Entry> {
+    return this.http.post(JournalEntriesService.ENTRIES_API, JSON.stringify(entry), JournalEntriesService.defaultOptions)
+      .map( (res: Response) => res.json() )
+      .catch( error => this.handleError(error) );
+  }
+
   private handleError(error: Response): Observable<any> {
     if (!environment.production) {
       console.error(`Journal Entries Service error: ${ error.json() }`);

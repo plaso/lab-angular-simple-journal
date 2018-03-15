@@ -27,3 +27,11 @@ h2 {
 .card-panel {
   cursor: pointer;
 }
+
+.btn-create {
+  background-color: #5d75ef !important;
+}
+
+.btn-create:hover {
+  background-color: #8194f0 !important;
+}

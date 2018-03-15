@@ -12,13 +12,15 @@ import { JournalEntriesService } from './shared/services/journal-entries.service
 import { AppComponent } from './app.component';
 import { EntryListComponent } from './components/entry-list/entry-list.component';
 import { SingleEntryComponent } from './components/single-entry/single-entry.component';
+import { EntryFormComponent } from './components/entry-form/entry-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EntryListComponent,
-    SingleEntryComponent
+    SingleEntryComponent,
+    EntryFormComponent
   ],
   imports: [
     BrowserModule,

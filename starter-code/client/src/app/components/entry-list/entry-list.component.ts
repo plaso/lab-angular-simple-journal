@@ -13,6 +13,14 @@ export class EntryListComponent implements OnInit {
   constructor(private journalEntriesService: JournalEntriesService) { }
 
   ngOnInit() {
+    this.listEntries();
+  }
+
+  createEntry() {
+    this.listEntries();
+  }
+
+  private listEntries() {
     this.journalEntriesService.list()
       .subscribe( (entries) => this.entries = entries );
   }

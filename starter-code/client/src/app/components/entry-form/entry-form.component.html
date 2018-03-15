@@ -1,0 +1,25 @@
+<h5>New entry</h5>
+
+<div class="row">
+  <form class="col s12" #entryForm="ngForm" (ngSubmit)="onSubmitCreateEntry(entryForm)">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="post-title" type="text" class="validate" name="title" [(ngModel)]="entry.title" #title="ngModel" required>
+        <label for="post-title">Post title</label>
+        <ul *ngIf="title.errors && title.touched">
+          <li *ngIf="title.errors.required">Title is required</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="post-content" class="materialize-textarea" name="content" [(ngModel)]="entry.content" #content="ngModel" required></textarea>
+        <label for="post-content">Post content</label>
+      </div>
+      <ul *ngIf="content.errors && content.touched">
+        <li *ngIf="content.errors.required">Content is required</li>
+      </ul>
+    </div>
+    <button class="btn btn-create" type="submit">Create</button>
+  </form>
+</div>
